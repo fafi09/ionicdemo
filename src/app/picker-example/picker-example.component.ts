@@ -35,7 +35,7 @@ export class PickerExampleComponent implements OnInit {
 
   ngOnInit() {}
   
-  async openPicker(numColumns = 1, numOptions = 5, columnOptions = this.defaultColumnOptions){
+  async openPicker(numColumns = 2, numOptions = 5, columnOptions = this.multiColumnOptions){
     const picker = await this.pickerController.create({
       columns: this.getColumns(numColumns, numOptions, columnOptions),
       buttons: [
@@ -46,7 +46,7 @@ export class PickerExampleComponent implements OnInit {
         {
           text: 'Confirm',
           handler: (value) => {
-            console.log(`Got Value ${value}`);
+            console.log(`Got Value ${value['col-0'].text}`);
           }
         }
       ]
