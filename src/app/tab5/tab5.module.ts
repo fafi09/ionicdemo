@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { Tab5Page } from './tab5.page';
-
+import { MenusComponent } from "../menus/menus.component";
 const routes: Routes = [
   {
     path: '',
