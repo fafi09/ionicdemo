@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { ModalpageComponent } from '../modalpage/modalpage.component';
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',
@@ -32,7 +34,7 @@ export class Tab5Page implements OnInit {
     console.log('toggleInfiniteScroll');
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController,public modalController: ModalController) { }
 
   openFirst() {
     console.log('openFirst');
@@ -52,5 +54,10 @@ export class Tab5Page implements OnInit {
 
   ngOnInit() {
   }
-
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalpageComponent
+    });
+    return await modal.present();
+  }
 }

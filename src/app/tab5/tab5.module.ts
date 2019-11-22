@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { Tab5Page } from './tab5.page';
 import { MenusComponent } from "../menus/menus.component";
+import { ModalpageComponent } from "../modalpage/modalpage.component";
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [Tab5Page]
+  declarations: [Tab5Page,
+    ModalpageComponent],
+    entryComponents: [ModalpageComponent]
 })
 export class Tab5PageModule {}
