@@ -56,7 +56,12 @@ export class Tab5Page implements OnInit {
   }
   async presentModal() {
     const modal = await this.modalController.create({
-      component: ModalpageComponent
+      component: ModalpageComponent,
+      componentProps: {
+        'firstName': 'Douglas',
+        'lastName': 'Adams',
+        'middleInitial': 'N'
+      }
     });
     return await modal.present();
   }
