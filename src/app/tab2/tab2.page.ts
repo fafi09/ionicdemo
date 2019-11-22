@@ -40,4 +40,14 @@ export class Tab2Page {
   logScrolling(event) {
     console.log('logScrolling');
   }
+
+  clickedSearch() {
+    console.log('clickedSearch');
+  }
+
+  clickedStar() {
+    
+    console.log('clickedStar');
+  }
+
 }
