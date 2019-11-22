@@ -26,8 +26,11 @@
     openCustom
   </ion-button>
   <ion-button (click)="presentModal()" expand="block">
-      modalpage
-    </ion-button>
+    modalpage
+  </ion-button>
+  <ion-button (click)="presentPopover()" expand="block">
+      Popover
+  </ion-button>
   <ion-list *ngFor="let user of users">
     <ion-item>
       <ion-avatar slot="start">

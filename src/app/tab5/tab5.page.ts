@@ -3,6 +3,8 @@ import { IonInfiniteScroll } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalpageComponent } from '../modalpage/modalpage.component';
+import { PopoverController } from '@ionic/angular';
+import { PopoverComponent } from "../popover/popover.component";
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',
@@ -34,7 +36,7 @@ export class Tab5Page implements OnInit {
     console.log('toggleInfiniteScroll');
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
-  constructor(private menu: MenuController,public modalController: ModalController) { }
+  constructor(private menu: MenuController,public modalController: ModalController,public popoverController: PopoverController) { }
 
   openFirst() {
     console.log('openFirst');
@@ -64,5 +66,13 @@ export class Tab5Page implements OnInit {
       }
     });
     return await modal.present();
+  }
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 }
