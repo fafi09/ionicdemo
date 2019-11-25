@@ -20,3 +20,18 @@ target=android-26
 
 D:\ionicbuild\demo\platforms\android\CordovaLib\project.properties
 target=android-26
+
+3.签名打包部署出现如下错误
+命令：
+D:\ionicbuild\demo>ionic cordova run android --prod --release -- -- --keystore=myapp.keystore --alias=myapp
+
+错误：
+Failed to create component for 'dialog' reason: java.awt.HeadlessException
+
+解决方法：
+在D:\ionicbuild\demo\platforms\android\CordovaLib\cordova.gradle中
+import groovy.swing.SwingBuilder后加入
+System.setProperty('java.awt.headless', 'false')
+
+在if (System.console() == null) { 后加入
+System.setProperty('java.awt.headless', 'false')
