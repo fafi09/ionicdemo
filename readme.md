@@ -44,3 +44,5 @@ npm install @ionic-native/file
 
     <preference name="AndroidPersistentFileLocation" value="Internal" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+
+    module中添加file作为provider，component constructor中添加file的注入
