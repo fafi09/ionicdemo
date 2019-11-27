@@ -6,6 +6,8 @@ import { ModalpageComponent } from '../modalpage/modalpage.component';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from "../popover/popover.component";
 import { LoadingController } from '@ionic/angular';
+import { File } from '@ionic-native/file/ngx';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',
@@ -38,7 +40,7 @@ export class Tab5Page implements OnInit {
     console.log('toggleInfiniteScroll');
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
-  constructor(private menu: MenuController, public modalController: ModalController, public popoverController: PopoverController, public loadingController: LoadingController) { }
+  constructor(private menu: MenuController, public modalController: ModalController, public popoverController: PopoverController, public loadingController: LoadingController, private file: File, public toastController: ToastController) { }
 
   openFirst() {
     console.log('openFirst');
@@ -122,5 +124,21 @@ export class Tab5Page implements OnInit {
       console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
+  }
+
+  checkFile() {
+    let promise = this.file.checkDir(this.file.dataDirectory, 'mydir');
+    promise.then(_ => {this.presentToast('Directory exists');
+    console.log('Directory exists');})
+    .catch(err =>
+      {this.presentToast('Directory doesnot exist');console.log('Directory doesnot exist');});
+  }
+  
+  async presentToast(msg:string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
   }
 }

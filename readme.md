@@ -35,3 +35,12 @@ System.setProperty('java.awt.headless', 'false')
 
 在if (System.console() == null) { 后加入
 System.setProperty('java.awt.headless', 'false')
+
+4.插件file使用
+ionic cordova plugin add cordova-plugin-file
+npm install @ionic-native/file
+
+在config.xml中加入:
+
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />

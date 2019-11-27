@@ -9,7 +9,7 @@ import { Tab5Page } from './tab5.page';
 import { MenusComponent } from "../menus/menus.component";
 import { ModalpageComponent } from "../modalpage/modalpage.component";
 import { PopoverComponent } from "../popover/popover.component";
-
+import { File } from '@ionic-native/file/ngx';
 const routes: Routes = [
   {
     path: '',
@@ -26,6 +26,7 @@ const routes: Routes = [
   ],
   declarations: [Tab5Page,
     ModalpageComponent, PopoverComponent],
-    entryComponents: [ModalpageComponent, PopoverComponent]
+    entryComponents: [ModalpageComponent, PopoverComponent],
+  providers: [File]
 })
 export class Tab5PageModule {}
