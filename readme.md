@@ -46,3 +46,7 @@ npm install @ionic-native/file
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
     module中添加file作为provider，component constructor中添加file的注入
+
+如果注入不成功检查下面
+"cordova-plugin-file": {}
+是否在package.json里存在

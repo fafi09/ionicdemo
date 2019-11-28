@@ -128,7 +128,7 @@ export class Tab5Page implements OnInit {
 
   checkFile() {
     let promise = this.file.checkDir(this.file.dataDirectory, 'mydir');
-    promise.then(_ => {this.presentToast('Directory exists');
+    promise.then(_ => {this.presentToast(this.file.dataDirectory+'Directory exists');
     console.log('Directory exists');})
     .catch(err =>
       {this.presentToast('Directory doesnot exist');console.log('Directory doesnot exist');});
